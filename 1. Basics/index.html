@@ -1,0 +1,762 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>1. Basics - IEEE Machine Learning Bootcamp</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.1b62728e.css">
+      
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#tools-numpy-and-pandas" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href=".." title="IEEE Machine Learning Bootcamp" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              IEEE Machine Learning Bootcamp
+            </span>
+            <span class="md-header-nav__topic">
+              
+                1. Basics
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href=".." title="IEEE Machine Learning Bootcamp" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    IEEE Machine Learning Bootcamp
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../0. Setup/" title="Getting Started" class="md-nav__link">
+      Getting Started
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        1. Basics
+      </label>
+    
+    <a href="./" title="1. Basics" class="md-nav__link md-nav__link--active">
+      1. Basics
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tools-numpy-and-pandas" class="md-nav__link">
+    Tools: NumPy and Pandas
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#numpy" class="md-nav__link">
+    Numpy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pandas" class="md-nav__link">
+    Pandas
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-challenge" class="md-nav__link">
+    The Challenge
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linear-regression" class="md-nav__link">
+    Linear Regression:
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-regression" class="md-nav__link">
+    What is Regression?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#definition" class="md-nav__link">
+    Definition
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gradient-descent" class="md-nav__link">
+    Gradient Descent
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stochastic-gradient-descent" class="md-nav__link">
+    Stochastic Gradient Descent
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linear-regression-in-numpy" class="md-nav__link">
+    Linear Regression in Numpy
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#initialization" class="md-nav__link">
+    Initialization
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#evaluating-the-gradient" class="md-nav__link">
+    Evaluating the Gradient
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updating-weights" class="md-nav__link">
+    Updating Weights
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linear-regression-binary-classifier" class="md-nav__link">
+    Linear Regression Binary Classifier
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    Conclusion
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../2. Classical ML and NLP/" title="2. Classical ML and NLP" class="md-nav__link">
+      2. Classical ML and NLP
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../3. Neural Networks and Computer Vision/" title="3. Neural Networks and Computer Vision" class="md-nav__link">
+      3. Neural Networks and Computer Vision
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Additional Resources/" title="Additional Resources" class="md-nav__link">
+      Additional Resources
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Extras/" title="Extras" class="md-nav__link">
+      Extras
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tools-numpy-and-pandas" class="md-nav__link">
+    Tools: NumPy and Pandas
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#numpy" class="md-nav__link">
+    Numpy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pandas" class="md-nav__link">
+    Pandas
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-challenge" class="md-nav__link">
+    The Challenge
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linear-regression" class="md-nav__link">
+    Linear Regression:
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-regression" class="md-nav__link">
+    What is Regression?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#definition" class="md-nav__link">
+    Definition
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gradient-descent" class="md-nav__link">
+    Gradient Descent
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stochastic-gradient-descent" class="md-nav__link">
+    Stochastic Gradient Descent
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linear-regression-in-numpy" class="md-nav__link">
+    Linear Regression in Numpy
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#initialization" class="md-nav__link">
+    Initialization
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#evaluating-the-gradient" class="md-nav__link">
+    Evaluating the Gradient
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updating-weights" class="md-nav__link">
+    Updating Weights
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linear-regression-binary-classifier" class="md-nav__link">
+    Linear Regression Binary Classifier
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    Conclusion
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>1. Basics</h1>
+                
+                <p>Before we talk about any machine learning, let's talk about the main tools that we are going to be using for this workshop in the bootcamp: <strong>NumPy</strong> and <strong>Pandas</strong></p>
+<h2 id="tools-numpy-and-pandas"><strong>Tools: NumPy and Pandas</strong></h2>
+<h3 id="numpy">Numpy</h3>
+<div style="text-align:center" ><img width="30%" height="30%" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/NumPy_logo.svg/440px-NumPy_logo.svg.png" /></div>
+
+<p><strong>Numpy is a library that includes many tools for mathematical computations, including a computationally efficient ndarray</strong> (much faster than python lists)<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup> In addition, many mathematical functions useful in linear algebra are included in NumPy with the <code class="codehilite"><span class="err">numpy.linalg</span></code> functions. These functions will prove to be pretty useful in the rest of the workshop.</p>
+<p><em>If you are familiar with using MATLAB from MATH18, then you should be pretty familiar with the functions that NumPy provides.</em></p>
+<h3 id="pandas">Pandas</h3>
+<p><div style="text-align:center" ><img width="50%" height="50%" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Pandas_logo.svg/600px-Pandas_logo.svg.png" /></div></p>
+<p><strong>Pandas is a library that includes data structures and data analysis tools for data munging and preparation.</strong> Pandas makes it relatively easy to interact and filter through data, with nice convenience functions for plotting and exporting data to SQL databases or CSV's. </p>
+<div class="admonition faq">
+<p class="admonition-title">Faq</p>
+<p><strong><em>I heard that python is a very slow language. If it's so slow, why do we use python for such intensive tasks such as Machine Learning and Data Analysis?</em></strong></p>
+<p>While it is true that Python in itself is a very slow language, most of the tools that we are using to implement ML algorithms don't use Python to do calculations. Libraries such as Numpy and Tensorflow respectively have C and C++ backends <sup id="fnref:2"><a class="footnote-ref" href="#fn:2" rel="footnote">2</a></sup> <sup id="fnref:3"><a class="footnote-ref" href="#fn:3" rel="footnote">3</a></sup>, allowing them to be very fast. You can even uses other libraries such as <a href="https://software.intel.com/en-us/mkl">Intel MKL</a> to have hardware optimized linear algebra operations in Numpy if you are especially a speed demon. </p>
+</div>
+<h2 id="the-challenge"><strong>The Challenge</strong></h2>
+<p><strong><em>Say you are a data scientist working for an investment firm. A client wants to invest their money into real estate, buying homes in a specific neighborhood to airbnb. However, none of the homes are for sale, and the people living inside the homes won't let you appraise their homes because they hate airbnb. How do you find an estimate of their home price using data available to you?</em></strong> </p>
+<p><img alt="House Image" src="https://images.pexels.com/photos/1546166/pexels-photo-1546166.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260" /></p>
+<h2 id="linear-regression"><strong>Linear Regression</strong>:</h2>
+<h3 id="what-is-regression">What is Regression?</h3>
+<p><strong>Regression</strong> is a powerful tool that can often be used for predicting and . </p>
+<p>With the challenge above, we want to predict the house </p>
+<p>Regression is <strong>Continuous</strong>, meaning that it is trying to predict values from the variables, or <strong>features</strong> that your data has. For the example we are using below, rows 1-x make up the features that can be used to decide a predictor below.   </p>
+<h3 id="definition">Definition</h3>
+<p><strong>Linear Regression</strong> is the process of taking a line and fitting it to data. What we mean by "fitting" is that that we want to make a line that "approximates" the data (We'll get more into what we mean by this in a bit). Here is an example below with two dimensions (for example, if your dataset has 2 variables). From the points below, we can predict the value for y with a value for x with the line given. </p>
+<p>Essentially, we want to find the weights w, such that the dot product between w and an input vector x (for example, an input sample), can be predicted from these weights. <strong>Or, we want to find an equation that when our features are plugged in, we will get a y value that can be used to predict our final values</strong></p>
+<div>
+<div class="MathJax_Preview"> w_1x_1 \;  \cdot  \; w_2x_2 \; \cdot \;  [\dots] \; \cdot \; w_nx_n \; = \; \hat{y} </div>
+<script type="math/tex; mode=display"> w_1x_1 \;  \cdot  \; w_2x_2 \; \cdot \;  [\dots] \; \cdot \; w_nx_n \; = \; \hat{y} </script>
+</div>
+<p>But, what exactly is an "optimal solution", and how do we get one? We'll get to how to find this solution, but let's set up our goal to find the most optimal approximate solution, otherwise known as setting up our <strong>objective function</strong>. We want to <strong>optimize the above equation so that it minimizes our objective function</strong>. In other words, we want to find the equation such that our loss is minimized. In fancy mathematical writing we want to minimize:</p>
+<div>
+<div class="MathJax_Preview">\begin{Vmatrix} y - Ax \end{Vmatrix}</div>
+<script type="math/tex; mode=display">\begin{Vmatrix} y - Ax \end{Vmatrix}</script>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>In much of machine learning, the goal is simply to reduce the error between the predictions and the true values, such as what we are doing in the challenge above. </p>
+<p>Just remember, that an objective function is a means to an end, not a means to an end. As we show below, there are many way to optimize a function using </p>
+</div>
+<h2 id="gradient-descent"><strong>Gradient Descent</strong></h2>
+<p>Let's say we want to find the minimize a function, for example <span><span class="MathJax_Preview">x^2</span><script type="math/tex">x^2</script></span>. We can easily find the minimum of this function (remember the second derivative rule in calculus?), but how can we do it for more complicated functions that are harder to differentiate like our objective function? This problem will get <strong><em>very hard</em></strong>, and <strong><em>very computationally intensive</em></strong>.</p>
+<p>To get over this hurdle of finding the exact minimum, we can instead <strong><em>approximate</em></strong> the minimum, using an algorithm called <strong>Gradient Descent</strong>. </p>
+<p>Imagine you have a ball and place it on a slope. It will move downwards, with the direction opposite of the gradient of the slope (remember the gradient is in the direction of <strong>ascent</strong>). We can think of gradient descent as something similar. Here we will move our current approximation of the minimum, towards the gradient. When the gradient gets small enough (in other words, when the slope is near zero at a minimum) or when we have moved our approximation for enough <strong>epochs</strong>, then we set the current approximation as our final value. </p>
+<p><img alt="Illustration of Gradient Descent" src="../images/gd.gif" /></p>
+<p>However, calculating the gradient of the cost function is a costly procedure, as it has to be done with each weight of your model. If we wanted to do this mathematically, we would have to calculate the equation below to find the derivative for <em>each feature</em> and <em>each sample</em>, which would kill any computer.</p>
+<div>
+<div class="MathJax_Preview">\frac{d}{{dx}}f\left( x \right) = \mathop {\lim }\limits_{\Delta \to 0} \frac{{f\left( {x + \Delta } \right) - f\left( x \right)}}{\Delta }</div>
+<script type="math/tex; mode=display">\frac{d}{{dx}}f\left( x \right) = \mathop {\lim }\limits_{\Delta \to 0} \frac{{f\left( {x + \Delta } \right) - f\left( x \right)}}{\Delta }</script>
+</div>
+<p>Instead of doing that, let's simply define the gradient as the difference between our predictions from the current iteration of gradient descent and the true values, multiplied by our sample features. This will get an approximation of the change over each feature the loss. </p>
+<div>
+<div class="MathJax_Preview"> \nabla f(X) = -X(values-predictions) </div>
+<script type="math/tex; mode=display"> \nabla f(X) = -X(values-predictions) </script>
+</div>
+<p>Here is psuedocode for Gradient Descent below, courtesy of CS231n:</p>
+<p><strong>Gradient Descent Pseudocode</strong> <sup id="fnref:4"><a class="footnote-ref" href="#fn:4" rel="footnote">4</a></sup>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1"># Vanilla Gradient Descent</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+  <span class="n">weights_grad</span> <span class="o">=</span> <span class="n">evaluate_gradient</span><span class="p">(</span><span class="n">loss_fun</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">weights</span><span class="p">)</span>
+  <span class="n">weights</span> <span class="o">+=</span> <span class="o">-</span> <span class="n">step_size</span> <span class="o">*</span> <span class="n">weights_grad</span> <span class="c1"># perform parameter update</span>
+</pre></div>
+</td></tr></table></p>
+<h3 id="stochastic-gradient-descent">Stochastic Gradient Descent</h3>
+<p>However, gradient descent has a huge drawback: <strong><em>it is computationally ineffecient</em></strong>. For every epoch, the gradient is calculated over all training samples. This is costly, and is unfeasible for most datasets. We can improve this by using <strong>Stochastic Gradient Descent (SGD)</strong>, a modification of the standard Gradient Descent algorithm.</p>
+<p><strong>Stochastic Gradient Descent tries to solve the previous problem by only calculating the gradient for a single randomly sampled point at a time</strong>, hence the word <a href="https://en.wikipedia.org/wiki/Stochastic">Stochastic</a>. Thus, this allows to update the weights of our model much quicker, allowing SGD to converge to a minima much quicker than in standard Gradient Descent. </p>
+<p>Although this optimization method is "noisier" it can often be much quicker to optimize a solution (illustrated below). We can reduce this use by calculating the gradient on batches of data instead of a single sample with <strong>Minibatch Gradient Descent</strong>. This can strike a balance can help reduce noise, but also allow us to still converge on our minima quickly. </p>
+<div style="text-align:center" ><img width="70%" height="70%" src="https://i.stack.imgur.com/lU3sx.png" /></div>
+
+<p>This noise is not always a negative trait though, as it can in fact possibly find us a more optimal solution for our regression. This additional noise can allow our solution to essentially "hop out" of local minima, allowing for the search of a more optimal minima. <sup id="fnref:5"><a class="footnote-ref" href="#fn:5" rel="footnote">5</a></sup> This can be especially useful when you have a complicated loss landscape with many local minima, such as those for complicated neural networks: </p>
+<div style="text-align:center" ><img width="50%" height="50%" src="https://www.cs.umd.edu/~tomg/img/landscapes/noshort.png" /></div>
+
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p><strong>Approximating the weights of this equation using SGD is one way to solve linear systems, but it is not the only way.</strong> One other method that may seem familiar to you is solving the closed form system of equations using linear algebra. I've linked this additional method in the <a href="../Extras/">Extras page</a>.</p>
+</div>
+<h2 id="linear-regression-in-numpy"><strong>Linear Regression in Numpy</strong></h2>
+<p>Alright, let's finally do some coding!</p>
+<h4 id="initialization">Initialization</h4>
+<p>O</p>
+<h4 id="evaluating-the-gradient">Evaluating the Gradient</h4>
+<h4 id="updating-weights">Updating Weights</h4>
+<h3 id="linear-regression-binary-classifier">Linear Regression Binary Classifier</h3>
+<p>Regression is continuous, so how can we turn this into something that is discrete. In other words, how can we go from our ML model predicting values, to predicting categories? </p>
+<p>One simple way, is simply changing your prediction value from a continuous variable, to a discrete variable. In other words, we can simply </p>
+<h2 id="conclusion"><strong>Conclusion</strong></h2>
+<p>So in conclusion, we learned a few things from this workshop
+1. How we can use concepts learned in Linear Algebra to create a simple Machine Learning Algorithm</p>
+<ol>
+<li>
+<p>What Regression is, how it is applied </p>
+</li>
+<li>
+<p>Basics of </p>
+</li>
+</ol>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>Python ndarrays vs. Lists <a href="https://webcourses.ucf.edu/courses/1249560/pages/python-lists-vs-numpy-arrays-what-is-the-difference">https://webcourses.ucf.edu/courses/1249560/pages/python-lists-vs-numpy-arrays-what-is-the-difference</a>&#160;<a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>Numpy Internals <a href="https://docs.scipy.org/doc/numpy-1.13.0/reference/internals.html">https://docs.scipy.org/doc/numpy-1.13.0/reference/internals.html</a>&#160;<a class="footnote-backref" href="#fnref:2" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:3">
+<p>Tensorflow Core C++ API <a href="https://www.tensorflow.org/api_docs/cc/group/core">https://www.tensorflow.org/api_docs/cc/group/core</a>&#160;<a class="footnote-backref" href="#fnref:3" rev="footnote" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:4">
+<p>CS231n: Optimization <a href="http://cs231n.github.io/optimization-1/#optimization">http://cs231n.github.io/optimization-1/#optimization</a>&#160;<a class="footnote-backref" href="#fnref:4" rev="footnote" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:5">
+<p>SGD and Local Minima <a href="https://leon.bottou.org/publications/pdf/nimes-1991.pdf">https://leon.bottou.org/publications/pdf/nimes-1991.pdf</a>&#160;<a class="footnote-backref" href="#fnref:5" rev="footnote" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+</li>
+<li id="fn:6">
+<p>Neural Network Loss Landscapes <a href="https://www.cs.umd.edu/~tomg/projects/landscapes/">https://www.cs.umd.edu/~tomg/projects/landscapes/</a>&#160;<a class="footnote-backref" href="#fnref:6" rev="footnote" title="Jump back to footnote 6 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../0. Setup/" title="Getting Started" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Getting Started
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../2. Classical ML and NLP/" title="2. Classical ML and NLP" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                2. Classical ML and NLP
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.808e90bb.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>
