@@ -252,7 +252,7 @@
         
           <li class="md-nav__item">
   <a href="#the-dataset" class="md-nav__link">
-    The dataset
+    The Dataset
   </a>
   
 </li>
@@ -385,7 +385,7 @@
         
           <li class="md-nav__item">
   <a href="#the-dataset" class="md-nav__link">
-    The dataset
+    The Dataset
   </a>
   
 </li>
@@ -456,8 +456,8 @@
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p><strong><em>DEFINITION DETOUR</em></strong>: Unsupervised and Supervised Learning</p>
-<p><strong>Supervised</strong>: Supervised learning is unique in that it has training data. </p>
-<p><strong>Unsupervised</strong>:  </p>
+<p><strong>Supervised</strong>: Supervised learning is unique in that it has training data. The model will learn from labeled data in order to predict something, usually in the form of classification or regression.</p>
+<p><strong>Unsupervised</strong>:  Unsupervised learning is when the algorithm attempts to create structure from unlabeled data. This is usually in the form of clustering, but can take other forms, such as learning representations of data.</p>
 </div>
 <p>Since Classical Machine Learning Algorithms are often outclassed by Deep Learning algorthims, <strong><em>why should we even use them?</em></strong> The answer is more clear than you think.</p>
 <ol>
@@ -472,12 +472,27 @@
 <p>Scikit-learn includes off the shelf machine learning algorithms </p>
 <h2 id="the-challenge"><strong>The Challenge</strong></h2>
 <p>You recently got fired from you job as a data scientist from your job as because they discovered that you lied on your resume and couldn't implement linear regression from scratch. You decide to pivot and work for a newspaper, who is trying to figure out the category of each news article to deliver tailored ads. In addition, they want to create a recommender system to recommend articles to readers. How do you do this?</p>
-<h3 id="the-dataset">The dataset</h3>
+<h3 id="the-dataset">The Dataset</h3>
+<p><div style="text-align:center" ><img width="70%" height="70%" src="https://images.pexels.com/photos/265642/pexels-photo-265642.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" /></div></p>
+<p>The dataset that we are using is called the <strong>20 Newsgroups Dataset</strong> which contains ~20,000 news documents spread across 20 different types of newsgroups. </p>
+<p><center>
+<table>
+<tr>
+<td>comp.graphics<br>comp.os.ms-windows.misc<br>comp.sys.ibm.pc.hardware<br>comp.sys.mac.hardware<br>comp.windows.x</td>
+<td>rec.autos<br>rec.motorcycles<br>rec.sport.baseball<br>rec.sport.hockey</td>
+<td>sci.crypt<br>sci.electronics<br>sci.med<br>sci.space</td>
+</tr><tr>
+<td>misc.forsale</td>
+<td>talk.politics.misc<br>talk.politics.guns<br>talk.politics.mideast</td>
+<td>talk.religion.misc<br>alt.atheism<br>soc.religion.christian</td>
+</tr>
+</table>
+</center></p>
 <h2 id="natural-language-processing">Natural Language Processing</h2>
 <p>In the past workshop, we were dealing with almost exclusively numerical data. This made things pretty easy for us. This allowed us to put these numbers into vectors, which could easily work with our machine learning algorithms. However, with text data, if you wanted to use it with machine learning, we have to answer one main question</p>
 <p><strong><em>How can we turn our text data into features that our machine learning model can use?</em></strong></p>
 <h3 id="feature-engineering">Feature Engineering</h3>
-<p>Feature Engineering is the process of making Features from our data. This is especia</p>
+<p><strong>Feature Engineering is the</strong> process of making Features from our data. Making proper features is essential for any Machine Learning workflow, especially for applications of NLP</p>
 <h2 id="challenge-categorization">Challenge: Categorization</h2>
 <h2 id="challenge-recommender-system">Challenge: Recommender System</h2>
                 

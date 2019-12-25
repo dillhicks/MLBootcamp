@@ -248,6 +248,19 @@
     The Challenge
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-dataset" class="md-nav__link">
+    The Dataset
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -454,6 +467,19 @@
     The Challenge
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-dataset" class="md-nav__link">
+    The Dataset
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -586,29 +612,120 @@
 <p>While it is true that Python in itself is a very slow language, most of the tools that we are using to implement ML algorithms don't use Python to do calculations. Libraries such as Numpy and Tensorflow respectively have C and C++ backends <sup id="fnref:2"><a class="footnote-ref" href="#fn:2" rel="footnote">2</a></sup> <sup id="fnref:3"><a class="footnote-ref" href="#fn:3" rel="footnote">3</a></sup>, allowing them to be very fast. You can even uses other libraries such as <a href="https://software.intel.com/en-us/mkl">Intel MKL</a> to have hardware optimized linear algebra operations in Numpy if you are especially a speed demon. </p>
 </div>
 <h2 id="the-challenge"><strong>The Challenge</strong></h2>
-<p><strong><em>Say you are a data scientist working for an investment firm. A client wants to invest their money into real estate, buying homes in a specific neighborhood to airbnb. However, none of the homes are for sale, and the people living inside the homes won't let you appraise their homes because they hate airbnb. How do you find an estimate of their home price using data available to you?</em></strong> </p>
+<p><strong><em>Say you are a data scientist working for an investment firm. A client wants to invest their money into california real estate, buying homes in a specific block to airbnb. However, none of the homes are for sale, and the people living inside the homes won't let you appraise their homes because they hate airbnb. How do you find an estimate of their home price using data available to you?</em></strong> </p>
 <p><img alt="House Image" src="https://images.pexels.com/photos/1546166/pexels-photo-1546166.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260" /></p>
+<h3 id="the-dataset">The Dataset</h3>
+<p>The dataset that you are given for this challenge is a dataset on California home prices. <strong>How can you use this data to predict home prices</strong>. Below is a description of the dataset and the features you are given to predict the median home value for a block.</p>
+<table>
+<thead>
+<tr>
+<th>Column title</th>
+<th>Description</th>
+<th>Range*</th>
+<th>Datatype</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>longitude</td>
+<td>A measure of how far west a house is; a higher value is farther west</td>
+<td><ul><li>Longitude values range from -180 to +180</li><li>Data set min: -124.3</li><li>Data set max: -114.3</li></ul></td>
+<td>float64</td>
+</tr>
+<tr>
+<td>latitude</td>
+<td>A measure of how far north a house is; a higher value is farther north</td>
+<td><ul><li>Latitude values range from -90 to +90</li><li>Data set min: 32.5</li><li>Data set max: 42.5</li></ul></td>
+<td>float64</td>
+</tr>
+<tr>
+<td>housingMedianAge</td>
+<td>Median age of a house within a block; a lower number is a newer building</td>
+<td><ul><li>Data set min: 1.0</li><li>Data set max: 52.0</li></ul></td>
+<td>float64</td>
+</tr>
+<tr>
+<td>totalRooms</td>
+<td>Total number of rooms within a block</td>
+<td><ul><li>Data set min: 2.0</li><li>Data set max: 37937.0</li></ul></td>
+<td>float64</td>
+</tr>
+<tr>
+<td>totalBedrooms</td>
+<td>Total number of bedrooms within a block</td>
+<td><ul><li>Data set min: 1.0</li><li>Data set max: 6445.0</li></ul></td>
+<td>float64</td>
+</tr>
+<tr>
+<td>population</td>
+<td>Total number of people residing within a block</td>
+<td><ul><li>Data set min: 3.0</li><li>Data set max: 35682.0</li></ul></td>
+<td>float64</td>
+</tr>
+<tr>
+<td>households</td>
+<td>Total number of households, a group of people residing within a home unit, for a block</td>
+<td><ul><li>Data set min: 1.0</li><li>Data set max: 6082.0</li></ul></td>
+<td>float64</td>
+</tr>
+<tr>
+<td>medianIncome</td>
+<td>Median income for households within a block of houses (measured in tens of thousands of US Dollars)</td>
+<td><ul><li>Data set min: 0.5</li><li>Data set max: 15.0</li></ul></td>
+<td>float64</td>
+</tr>
+<tr>
+<td>medianHouseValue</td>
+<td>Median house value for households within a block (measured in US Dollars)</td>
+<td><ul><li>Data set min: 14999.0</li><li>Data set max: 500001.0</li></ul></td>
+<td>float64</td>
+</tr>
+</tbody>
+</table>
+
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Definition: <strong>Features</strong></p>
+<p>To clarify on the use of the word "features" above, <strong>features are essentially the traits of data that we use to train our machine learning model</strong>. For example, when making a model that can predict home prices, we can use all the data above to help predict the median house value for a block. The <code class="codehilite"><span class="err">housingMedianAge</span></code>, <code class="codehilite"><span class="err">medianIncome</span></code>, and all the other columns except for our predictor, <code class="codehilite"><span class="err">medianHouseValue</span></code>, are our features for our model.</p>
+</div>
 <h2 id="linear-regression"><strong>Linear Regression</strong>:</h2>
 <h3 id="what-is-regression">What is Regression?</h3>
-<p><strong>Regression</strong> is a powerful tool that can often be used for predicting and . </p>
-<p>With the challenge above, we want to predict the house </p>
-<p>Regression is <strong>Continuous</strong>, meaning that it is trying to predict values from the variables, or <strong>features</strong> that your data has. For the example we are using below, rows 1-x make up the features that can be used to decide a predictor below.   </p>
+<p><strong>Regression</strong> is a powerful tool that can often be used for predicting and values from a dataset. This is often done by creating a line or function, where the evaluation of this function can be used to predict such values. For example, with the regression below, you can predict the value of skin cancer mortality from a variable, in this case state latitude.</p>
+<div style="text-align:center" ><img width="70%" height="70%" src="https://newonlinecourses.science.psu.edu/onlinecourses/sites/stat501/files/03anova/scatterplot_skin_cancer_01.png" /></div>
+
+<p>Regression is <strong>Continuous</strong>, meaning that it is trying to predict continuous values from the variables, or <strong>features</strong> that your data has. </p>
 <h3 id="definition">Definition</h3>
-<p><strong>Linear Regression</strong> is the process of taking a line and fitting it to data. What we mean by "fitting" is that that we want to make a line that "approximates" the data (We'll get more into what we mean by this in a bit). Here is an example below with two dimensions (for example, if your dataset has 2 variables). From the points below, we can predict the value for y with a value for x with the line given. </p>
-<p>Essentially, we want to find the weights w, such that the dot product between w and an input vector x (for example, an input sample), can be predicted from these weights. <strong>Or, we want to find an equation that when our features are plugged in, we will get a y value that can be used to predict our final values</strong></p>
+<p><strong>Linear Regression</strong> is the process of taking a line and fitting it to data. What we mean by "fitting" is that that we want to make a line that "approximates" the data (We'll get more into what we mean by this in a bit). The example above is with two dimensions (for example, if your dataset has 1 independent variable). </p>
+<p><strong>Essentially, we want to find the weights w for a linear equation such that we can predict the final value from input features.</strong> Here is an example of the type of equation we are trying to set up with m independent variables.</p>
 <div>
-<div class="MathJax_Preview"> w_1x_1 \;  \cdot  \; w_2x_2 \; \cdot \;  [\dots] \; \cdot \; w_nx_n \; = \; \hat{y} </div>
-<script type="math/tex; mode=display"> w_1x_1 \;  \cdot  \; w_2x_2 \; \cdot \;  [\dots] \; \cdot \; w_nx_n \; = \; \hat{y} </script>
+<div class="MathJax_Preview"> w_1x_1 \;  +  \; w_2x_2 \; + \;  \dots \; + \; w_mx_m \; = \; \hat{y} </div>
+<script type="math/tex; mode=display"> w_1x_1 \;  +  \; w_2x_2 \; + \;  \dots \; + \; w_mx_m \; = \; \hat{y} </script>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Representing this equation in code is hard, so it is best to represent this equation in vector (array) notation</strong></p>
+<p>We can also put or weights and input in their vector representation,</p>
+<div>
+<div class="MathJax_Preview">[w_1 \; w_2 \; w_3 \; \dots \; w_m] </div>
+<script type="math/tex; mode=display">[w_1 \; w_2 \; w_3 \; \dots \; w_m] </script>
+</div>
+<p>And also our input in it's vector representation,</p>
+<div>
+<div class="MathJax_Preview">[x_1 \; x_2 \; x_3 \; \dots \; x_m] </div>
+<script type="math/tex; mode=display">[x_1 \; x_2 \; x_3 \; \dots \; x_m] </script>
+</div>
+<p>And our solution to the linear equation represented as the dot product</p>
+<div>
+<div class="MathJax_Preview"> &lt;w,x&gt; \; = \; \hat{y} </div>
+<script type="math/tex; mode=display"> <w,x> \; = \; \hat{y} </script>
+</div>
+<p>Keep in mind that each of these vectors have length <strong>m</strong> for the amount of features that we want our machine learning model to use</p>
 </div>
 <p>But, what exactly is an "optimal solution", and how do we get one? We'll get to how to find this solution, but let's set up our goal to find the most optimal approximate solution, otherwise known as setting up our <strong>objective function</strong>. We want to <strong>optimize the above equation so that it minimizes our objective function</strong>. In other words, we want to find the equation such that our loss is minimized. In fancy mathematical writing we want to minimize:</p>
 <div>
 <div class="MathJax_Preview">\begin{Vmatrix} y - Ax \end{Vmatrix}</div>
 <script type="math/tex; mode=display">\begin{Vmatrix} y - Ax \end{Vmatrix}</script>
-</div>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>In much of machine learning, the goal is simply to reduce the error between the predictions and the true values, such as what we are doing in the challenge above. </p>
-<p>Just remember, that an objective function is a means to an end, not a means to an end. As we show below, there are many way to optimize a function using </p>
 </div>
 <h2 id="gradient-descent"><strong>Gradient Descent</strong></h2>
 <p>Let's say we want to find the minimize a function, for example <span><span class="MathJax_Preview">x^2</span><script type="math/tex">x^2</script></span>. We can easily find the minimum of this function (remember the second derivative rule in calculus?), but how can we do it for more complicated functions that are harder to differentiate like our objective function? This problem will get <strong><em>very hard</em></strong>, and <strong><em>very computationally intensive</em></strong>.</p>
@@ -644,7 +761,7 @@
 <p>Although this optimization method is "noisier" it can often be much quicker to optimize a solution (illustrated below). We can reduce this use by calculating the gradient on batches of data instead of a single sample with <strong>Minibatch Gradient Descent</strong>. This can strike a balance can help reduce noise, but also allow us to still converge on our minima quickly. </p>
 <div style="text-align:center" ><img width="70%" height="70%" src="https://i.stack.imgur.com/lU3sx.png" /></div>
 
-<p>This noise is not always a negative trait though, as it can in fact possibly find us a more optimal solution for our regression. This additional noise can allow our solution to essentially "hop out" of local minima, allowing for the search of a more optimal minima. <sup id="fnref:5"><a class="footnote-ref" href="#fn:5" rel="footnote">5</a></sup> This can be especially useful when you have a complicated loss landscape with many local minima, such as those for complicated neural networks: </p>
+<p>This noise is not always a negative trait though, as it can in fact possibly find us a more optimal solution for our regression. <strong>This additional noise can allow our solution to essentially "hop out" of local minima, allowing for the search of a more optimal minima.</strong> <sup id="fnref:5"><a class="footnote-ref" href="#fn:5" rel="footnote">5</a></sup> This can be especially useful when you have a complicated loss landscape with many local minima, such as those for complicated neural networks<sup id="fnref:6"><a class="footnote-ref" href="#fn:6" rel="footnote">6</a></sup>:</p>
 <div style="text-align:center" ><img width="50%" height="50%" src="https://www.cs.umd.edu/~tomg/img/landscapes/noshort.png" /></div>
 
 <div class="admonition info">
@@ -652,23 +769,25 @@
 <p><strong>Approximating the weights of this equation using SGD is one way to solve linear systems, but it is not the only way.</strong> One other method that may seem familiar to you is solving the closed form system of equations using linear algebra. I've linked this additional method in the <a href="../Extras/">Extras page</a>.</p>
 </div>
 <h2 id="linear-regression-in-numpy"><strong>Linear Regression in Numpy</strong></h2>
-<p>Alright, let's finally do some coding!</p>
+<p>Alright, let's finally do some coding! Let's</p>
 <h4 id="initialization">Initialization</h4>
-<p>O</p>
+<p>To initialize our machine learning model, let's just </p>
 <h4 id="evaluating-the-gradient">Evaluating the Gradient</h4>
 <h4 id="updating-weights">Updating Weights</h4>
 <h3 id="linear-regression-binary-classifier">Linear Regression Binary Classifier</h3>
 <p>Regression is continuous, so how can we turn this into something that is discrete. In other words, how can we go from our ML model predicting values, to predicting categories? </p>
 <p>One simple way, is simply changing your prediction value from a continuous variable, to a discrete variable. In other words, we can simply </p>
 <h2 id="conclusion"><strong>Conclusion</strong></h2>
-<p>So in conclusion, we learned a few things from this workshop
-1. How we can use concepts learned in Linear Algebra to create a simple Machine Learning Algorithm</p>
+<p>So in conclusion, we learned a few things from this workshop</p>
 <ol>
 <li>
-<p>What Regression is, how it is applied </p>
+<p>What Regression is and how you can apply it to real world challenges</p>
 </li>
 <li>
-<p>Basics of </p>
+<p>Basics of optimization, including <strong>Gradient Descent</strong> and its modifications</p>
+</li>
+<li>
+<p>How classification models are made and how you can use them</p>
 </li>
 </ol>
 <div class="footnote">
