@@ -345,6 +345,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#model-validation" class="md-nav__link">
+    Model Validation
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -552,6 +559,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#model-validation" class="md-nav__link">
+    Model Validation
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -749,10 +763,52 @@
 <h2 id="nlp-with-sklearn">NLP with sklearn</h2>
 <h3 id="data-cleaning_1">Data Cleaning</h3>
 <h3 id="creating-features">Creating Features</h3>
+<p>Now that we have removed unwanted text, let's now create features from our text data set. As explained earlier, we can use the bag of words representation with TF-IDF to 
+create features that are independent of text size. This is done easily through <code class="codehilite"><span class="err">TfidfVectorizer()</span></code> in the <code class="codehilite"><span class="err">sklearn.feature_extraction.text</span></code> module.</p>
 <h2 id="classification">Classification</h2>
+<p>Now that we created the features for our text, let's go over a new method that we can use to classify our text samples: **Support Vector Machine.</p>
 <h3 id="support-vector-machine">Support Vector Machine</h3>
+<p>Support Vector Machine, or <strong>SVM</strong> is a relatively new, yet powerful classifier. The workings of an SVM classifier is quite simple. It tries to create a <strong>hyperplane</strong> in the data space such that </p>
+<p>To give a geometric representation, the hyperplane below can be illustrated in an <span><span class="MathJax_Preview">\mathbb{R}^2</span><script type="math/tex">\mathbb{R}^2</script></span> and <span><span class="MathJax_Preview">\mathbb{R}^3</span><script type="math/tex">\mathbb{R}^3</script></span> feature space. In <span><span class="MathJax_Preview">\mathbb{R}^2</span><script type="math/tex">\mathbb{R}^2</script></span>, the hyperplane can be defined as a line, and above that a plane to denote the classification boundary in <span><span class="MathJax_Preview">\mathbb{R}^3</span><script type="math/tex">\mathbb{R}^3</script></span>.</p>
+<p><img alt="SVM Hyperplanes" src="../images/svmplanes.png" /></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p><strong>What is the kernel trick?</strong></p>
+<p>This is a common question asked in many ML interviews, and is fairly useful when trying to create a proper hyperplane. <strong>Essentially, the kernel trick is transforming your data to a higher dimension in order to create a hyperplane that can linearly separate the samples.</strong> For instance, in the image below, we obviously can't create a line that can intersect these data points to separate the two classes. But we can use a symmetric function, or kernel, to transform this data. </p>
+<p>The Radial Basis Function, or RBF, is commonly used as a kernel function in addition to Gaussian Filters as well.</p>
+<p><img alt="Kernel Trick" src="https://www.researchgate.net/profile/Husam_Al-Behadili/publication/305284381/figure/fig1/AS:384096221057024@1468587083237/Kernel-trick-By-transforming-the-original-space-left-into-a-space-of-increased.png" /></p>
+<p>Learn more about kernel functions here<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup><sup id="fnref:2"><a class="footnote-ref" href="#fn:2" rel="footnote">2</a></sup></p>
+</div>
+<h3 id="model-validation">Model Validation</h3>
+<p>Now time to get into something we haven't talked too much about yet: <strong>Model Validation</strong></p>
 <h2 id="clustering">Clustering</h2>
+<p>Wow, we were so into SVM classification that we almost forgot about the reccomender system. Lets try not to get that, as we definitely wouldn't want to get fired from this job as well. Let's start this problem by doing a quick case study on how recommender systems are typically implemented in industry, most notably how <strong>Netflix</strong> recommends content to its viewers.</p>
 <h3 id="k-means">K-means</h3>
+<p>K-means psuedocode</p>
+<blockquote>
+<p>given a list of N vectors <span><span class="MathJax_Preview">[x_1 \; \cdots \;  x_N]</span><script type="math/tex">[x_1 \; \cdots \;  x_N]</script></span> and an initial list of k group representative vectors <span><span class="MathJax_Preview">[z_1 \; \cdots \;  z_k]</span><script type="math/tex">[z_1 \; \cdots \;  z_k]</script></span></p>
+<p>repeat until convergence:</p>
+<ol>
+<li>
+<p>Partition the vectors into k groups. For each vector i = 1 ... N, assign <span><span class="MathJax_Preview">x_i</span><script type="math/tex">x_i</script></span> to the group associated with the nearest representative.</p>
+</li>
+<li>
+<p>Update representatives. For each group j = 1 .. k, set <span><span class="MathJax_Preview">z_j</span><script type="math/tex">z_j</script></span> to be the mean of the vectors in group j.</p>
+</li>
+</ol>
+</blockquote>
+<p>```</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>CS 229: Kernels <a href="https://see.stanford.edu/Course/CS229/39">https://see.stanford.edu/Course/CS229/39</a>&#160;<a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>Wikipedia: Kernel (Statistics)<a href="https://en.wikipedia.org/wiki/Kernel_(statistics)">https://en.wikipedia.org/wiki/Kernel_(statistics)</a>&#160;<a class="footnote-backref" href="#fnref:2" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
                 
                   
                 
