@@ -333,15 +333,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#evaluating-the-gradient" class="md-nav__link">
-    Evaluating the Gradient
+  <a href="#training-our-model" class="md-nav__link">
+    Training our Model
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#updating-weights" class="md-nav__link">
-    Updating Weights
+  <a href="#testing-your-model" class="md-nav__link">
+    Testing your model
   </a>
   
 </li>
@@ -559,15 +559,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#evaluating-the-gradient" class="md-nav__link">
-    Evaluating the Gradient
+  <a href="#training-our-model" class="md-nav__link">
+    Training our Model
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#updating-weights" class="md-nav__link">
-    Updating Weights
+  <a href="#testing-your-model" class="md-nav__link">
+    Testing your model
   </a>
   
 </li>
@@ -783,16 +783,208 @@
 <p><strong>Approximating the weights of this equation using SGD is one way to solve linear systems, but it is not the only way.</strong> One other method that may seem familiar to you is solving the closed form system of equations using linear algebra. I've linked this additional method in the <a href="../Extras/">Extras page</a>.</p>
 </div>
 <h2 id="linear-regression-in-numpy"><strong>Linear Regression in Numpy</strong></h2>
-<p>Alright, let's finally do some coding! Let's first start by loading the data</p>
+<p>Alright, let's finally do some coding!</p>
+<p>Go download the code from this repository, where you will recieve the starter code and </p>
+<p>As explained above, NumPy and Pandas are tools that every data scientist should know before they embark on solving a problem. In addition to these two, we will also use matplotlib in order to plot graphs related to the performance of our model!</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</td></tr></table>
+
+<p>Let's also import our data as well. Load the csv into a dataframe using the function </p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+</pre></div>
+</td></tr></table>
+
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Definition: <strong>Dataframe</strong></p>
+<p>One main feature of the Pandas library is the use of Dataframes. Dataframes make it very easy to filter through large datasets with different types of data. Think of Dataframes as 2D arrays where each element can have different types, or as a SQLite table that you store within your python program. </p>
+<p><em>Image of a dataframe that you should see in your Jupyter notebook when you import the data</em></p>
+<p><img alt="Dataframe" src="../images/dataframe.PNG" /></p>
+</div>
 <h3 id="data-preparation">Data Preparation</h3>
-<p>Before we start coding and creating our ML model, we have to do a fair bit of things to our data to ensure the best performance of our model. One technique to help do this is through <strong>Normalization</strong> of our data. What we mean by normalization is putting our </p>
+<p>Before we start coding and creating our ML model, we have to do a fair bit of things to our data to ensure the best performance of our model. One major thing in our model is removing missing values in our data. <strong>Missing values can affect our function greatly, causing many of the mathematical functions we use to simply not work, so we should remove them!</strong></p>
+<p>One example is when we are trying to evaluate our linear equation to predict housing values. </p>
+<p>When we are trying to calculate the prediction, if one feature is an <em>NaN</em> (not a number) in the dataset, we simply cannot compute the prediction! For example, for the linear equation below, when one of the values is a <em>NaN</em>, the output would obviously be <em>NaN</em> as well.</p>
+<div>
+<div class="MathJax_Preview"> w_1*NaN \;  +  \; w_2x_2 \; + \;  \dots \; + \; w_mx_m \; = \; NaN </div>
+<script type="math/tex; mode=display"> w_1*NaN \;  +  \; w_2x_2 \; + \;  \dots \; + \; w_mx_m \; = \; NaN </script>
+</div>
+<p>One way to get around this is to set these features that are missing to 0, but this essentially isn't true, so it is typically best practice to remove such samples that don't have a full feature set, just so these zero's don't affect our model too much. </p>
+<p><strong>Some useful functions for this are the functions:</strong></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">#Removes rows with NaN values in the dataframe</span>
+<span class="n">your_dataframe</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span> 
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">Keep in mind that this functions doesn&#39;t edit the original dataframe in place, it returns another dataframe, so make sure </span>
+<span class="sd">to overwrite your dataframe or initialize a new one.</span>
+<span class="sd">&#39;&#39;&#39;</span>
+</pre></div>
+</td></tr></table>
+
+<p>Another technique to help us ensure our model performs well is through <strong>Normalization</strong> of our data. What we mean by normalization is changing the features of our data in set ranges so that not one feature is inherently more important than another. </p>
+<p>One simple normalization method that we can use is min/max normalization. For this, we put all of our samples in the range of 0 to 1, with 1 being the maximum value of dataset for that feature. This makes our data less sensitive to things like the effect of units for each feature so that each can be weighed more evenly when creating weights for our linear equation. </p>
+<p><strong>The equation for min/max normalization is given by</strong></p>
+<div>
+<div class="MathJax_Preview">Normalized\: Sample = \frac{Sample}{{Maximum\: of\: all\: samples}} </div>
+<script type="math/tex; mode=display">Normalized\: Sample = \frac{Sample}{{Maximum\: of\: all\: samples}} </script>
+</div>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">#TASK: Write a function to normalize all the data in the dataframe with min/max normalization</span>
+<span class="k">def</span> <span class="nf">normalize_data</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="n">columns</span><span class="p">):</span>
+    <span class="c1">#Empty dataframe</span>
+    <span class="n">normalized_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+
+    <span class="c1">#ENTER CODE HERE</span>
+
+    <span class="k">return</span> <span class="n">normalized_df</span>
+</pre></div>
+</td></tr></table>
+
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Jargon Clarification: <strong>Performance</strong></p>
+<p>This is one thing that is really confusing to a lot of people, how do I know whether my model performs well? The truth is, there isn't really a simple way to know this, and there is <strong>a lot</strong> of different ways to measure model performance. </p>
+<p>One way to measure model performance is the accuracy </p>
+<p>I <strong><em>highly recommend</em></strong> to read up on common machine learning performance metrics, but we will be using average absolute error and mean squared error for our regression, and accuracy for our classifications.</p>
+</div>
 <h3 id="initialization">Initialization</h3>
-<p>To initialize our machine learning model, let's just </p>
-<h3 id="evaluating-the-gradient">Evaluating the Gradient</h3>
-<h3 id="updating-weights">Updating Weights</h3>
+<p>First, let's establish some numbers that we can use to modify the training of our linear regression model. <strong>These numbers are called hyperparameters</strong></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Definition: <strong>Hyperparameters</strong></p>
+<p>Hyperparameters define certain portions of your machine learning model, which allows you to customize certain portions of the training to get the best performance as possible.</p>
+<p>The main hyperparameters we will use during this workshop are the <strong>learning rate</strong> and the <strong>training steps</strong></p>
+<p><strong>Training steps</strong> are the number of times we will update our weights while we run gradient descent. For each training step of gradient descent, we will iterate through the entire dataset.</p>
+<p><strong>Learning rate</strong> the the number that we will multiply our gradient by in each training step. This essentially allows us to decide how large each "step" our loss takes during each iteration of gradient descent. </p>
+<p>In order to find the best hyperparameters, one could do a <strong>"grid search"</strong>, where you could run your model over different combinations of your hyperparameters to get the set that has the best performance.</p>
+<p>Read more here: <a href="https://scikit-learn.org/stable/modules/grid_search.html">https://scikit-learn.org/stable/modules/grid_search.html</a></p>
+</div>
+<p>Since hyperparameters don't matter too much for simple models like linear regression, let's just use something that looks fine. (Honestly a lot of machine learning is trying out different things and seeing if it works 😊)</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">#Setting up hyperparameters</span>
+<span class="err">​</span>
+<span class="c1">#Alpha is our learning rate</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="err">​</span>
+<span class="c1">#Iterations is how many times we will run our algorithm</span>
+<span class="n">iterations</span> <span class="o">=</span> <span class="mi">10000</span>
+</pre></div>
+</td></tr></table>
+
+<h3 id="training-our-model">Training our Model</h3>
+<p>Now that we have set up our hyperparameters, we can now go over how to train our linear regression model using gradient descent.  For this part of the workshop, we are going to create a function that takes in our data, labels, and hyperparameters, and outputs a model and a list containing the mean squared error for each training step. </p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">train</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">training_steps</span><span class="p">,</span><span class="n">alpha</span><span class="p">):</span>
+</pre></div>
+</td></tr></table>
+
+<p>Let's start by initializing our training. In our function, let's define some parameters of our function to ensure that everything works correctly. </p>
+<p>First, we will set up a history list to store our mean squared error for each iteration (you will see what this is used for later). In addition let's find the amount of weights that we need in addition to the length of our dataset. </p>
+<p>Functions: </p>
+<p><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">your_np_array</span><span class="o">.</span><span class="n">shape</span> <span class="c1">#gets the shape of your python ndarray. </span>
+<span class="c1">#For example, for an nxm ndarray, this will return a tuple containing (n,m)</span>
+</pre></div>
+</td></tr></table>
+Here is the skeleton code for this section to get you started on the structure</p>
+<p><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">#Storing our cost function, Mean Squared Error</span>
+<span class="n">history</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1">#Finding the number of weights we need and also the number of samples</span>
+<span class="n">num_weights</span> <span class="o">=</span> <span class="c1">#Find the number of weights for </span>
+<span class="n">n</span> <span class="o">=</span> <span class="c1">#Find the number of samples in the dataset</span>
+</pre></div>
+</td></tr></table>
+Next, let's initialize our weights! Let's initialize these weights randomly so that our model can converge to a minima with a more independent start. </p>
+<p>A useful function for this is the <code class="codehilite"><span class="err">np.random.rand()</span></code> function, which creates a list of random numbers.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">#Initializing our weights to random numbers</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">69420</span><span class="p">)</span>
+<span class="n">weights</span> <span class="o">=</span> <span class="c1">#initialize weights</span>
+</pre></div>
+</td></tr></table>
+
+<p>Now that we have everything set up, I'll leave this part a bit more open ended, and write the pseudocode for each part of the gradient descent loop. For your convenience, here are the equations that are used in the gradient descent loop.</p>
+<div>
+<div class="MathJax_Preview"> Error = y - \hat{y} </div>
+<script type="math/tex; mode=display"> Error = y - \hat{y} </script>
+</div>
+<div>
+<div class="MathJax_Preview"> \hat{y} \; = w_1x_1 \;  +  \; w_2x_2 \; + \;  \dots \; + \; w_nx_n  </div>
+<script type="math/tex; mode=display"> \hat{y} \; = w_1x_1 \;  +  \; w_2x_2 \; + \;  \dots \; + \; w_nx_n  </script>
+</div>
+<div>
+<div class="MathJax_Preview"> \nabla =(\frac{1}{n})(y - \hat{y})x </div>
+<script type="math/tex; mode=display"> \nabla =(\frac{1}{n})(y - \hat{y})x </script>
+</div>
+<div>
+<div class="MathJax_Preview"> RMSE = \sqrt{(\frac{1}{n})\sum_{i=1}^{n}(y_{i} - \hat{y}_{i})^{2}} </div>
+<script type="math/tex; mode=display"> RMSE = \sqrt{(\frac{1}{n})\sum_{i=1}^{n}(y_{i} - \hat{y}_{i})^{2}} </script>
+</div>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">#iterating through each training step</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">iterations</span><span class="p">):</span>
+
+        <span class="c1">#testing the model and find the error</span>
+        <span class="c1">#finding the root mean square error of the current weights and then append it to our mse list</span>
+        <span class="c1">#finding the gradient and then defining the new weights using this gradient</span>
+
+    <span class="k">return</span> <span class="n">weights</span><span class="p">,</span><span class="n">history</span>    
+</pre></div>
+</td></tr></table>
+
+<h3 id="testing-your-model">Testing your model</h3>
+<p>Now that we have trained our model, let's see how our model performs in terms of fitting our data. Let's graph the RMSE which we stored for each training iteration of our gradient descent. Logically, the RMSE should decrease with each training step given our algorithm is working. </p>
+<p>You can use the code below to graph the RMSE that is returned from your <code class="codehilite"><span class="err">train()</span></code> function.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Root Mean Square Error (MSE) over each iteration&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;No. of iterations&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;RMSE&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">history</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</td></tr></table>
+
+<p><img alt="RMSE" src="../images/rmse.png" /></p>
+<p>We can also measure our final RMSE and average absolute error as well. We can simply take the dot product between the weights and a the inputs to make our predictions, and </p>
 <h3 id="linear-regression-binary-classifier">Linear Regression Binary Classifier</h3>
 <p>Regression is continuous, so how can we turn this into something that is discrete. In other words, how can we go from our ML model predicting values, to predicting categories? </p>
-<p>One simple way, is simply changing your prediction value from a continuous variable, to a discrete variable. In other words, we can simply </p>
+<p>One simple way, is simply changing your prediction value from a continuous variable, to a discrete variable. In other words, we can simply change our y values from something that is continuous, to something that is categorical.</p>
+<p>In the future, we will go over multi-class classification problems (when you are trying to distinguish between more than 2 classes), but for now we will focus on binary classification. </p>
 <h2 id="conclusion"><strong>Conclusion</strong></h2>
 <p>So in conclusion, we learned a few things from this workshop</p>
 <ol>
