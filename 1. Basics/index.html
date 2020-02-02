@@ -244,6 +244,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#downloads" class="md-nav__link">
+    Downloads
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#the-challenge" class="md-nav__link">
     The Challenge
   </a>
@@ -291,12 +298,19 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#gradient-descent" class="md-nav__link">
-    Gradient Descent
+  <a href="#optimization" class="md-nav__link">
+    Optimization
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gradient-descent" class="md-nav__link">
+    Gradient Descent
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#stochastic-gradient-descent" class="md-nav__link">
@@ -382,30 +396,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../2. Classical ML and NLP/" title="2. Classical ML and NLP" class="md-nav__link">
-      2. Classical ML and NLP
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../3. Neural Networks and Computer Vision/" title="3. Neural Networks and Computer Vision" class="md-nav__link">
-      3. Neural Networks and Computer Vision
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
     <a href="../Additional Resources/" title="Additional Resources" class="md-nav__link">
       Additional Resources
     </a>
@@ -470,6 +460,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#downloads" class="md-nav__link">
+    Downloads
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#the-challenge" class="md-nav__link">
     The Challenge
   </a>
@@ -517,12 +514,19 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#gradient-descent" class="md-nav__link">
-    Gradient Descent
+  <a href="#optimization" class="md-nav__link">
+    Optimization
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gradient-descent" class="md-nav__link">
+    Gradient Descent
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#stochastic-gradient-descent" class="md-nav__link">
@@ -625,6 +629,11 @@
 <p><strong><em>I heard that python is a very slow language. If it's so slow, why do we use python for such intensive tasks such as Machine Learning and Data Analysis?</em></strong></p>
 <p>While it is true that Python in itself is a very slow language, most of the tools that we are using to implement ML algorithms don't use Python to do calculations. Libraries such as Numpy and Tensorflow respectively have C and C++ backends <sup id="fnref:2"><a class="footnote-ref" href="#fn:2" rel="footnote">2</a></sup> <sup id="fnref:3"><a class="footnote-ref" href="#fn:3" rel="footnote">3</a></sup>, allowing them to be very fast. You can even uses other libraries such as <a href="https://software.intel.com/en-us/mkl">Intel MKL</a> to have hardware optimized linear algebra operations in Numpy if you are especially a speed demon. </p>
 </div>
+<h2 id="downloads"><strong>Downloads</strong></h2>
+<p>Click below to download the data and starter notebook which includes a frame for you to write your code around. </p>
+<p><a href="/code/housing.csv" download>Click to Download Dataset</a></p>
+<p><a href="/code/starter-workshop1.ipynb" download>Click to Download Starter Code</a></p>
+<p><img alt="Notebook Image" src="../images/nb.PNG" /></p>
 <h2 id="the-challenge"><strong>The Challenge</strong></h2>
 <p><strong><em>Say you are a data scientist working for an investment firm. A client wants to invest their money into california real estate, buying homes in a specific block to airbnb. However, none of the homes are for sale, and the people living inside the homes won't let you appraise their homes because they hate airbnb. How do you find an estimate of their home price using data available to you?</em></strong> </p>
 <p><img alt="House Image" src="https://images.pexels.com/photos/1546166/pexels-photo-1546166.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260" /></p>
@@ -736,15 +745,19 @@
 </div>
 <p>Keep in mind that each of these vectors have length <strong>m</strong> for the amount of features that we want our machine learning model to use</p>
 </div>
-<p>But, what exactly is an "optimal solution", and how do we get one? We'll get to how to find this solution, but let's set up our goal to find the most optimal approximate solution, otherwise known as setting up our <strong>objective function</strong>. We want to <strong>optimize the above equation so that it minimizes our objective function</strong>. In other words, we want to find the equation such that our loss is minimized. In fancy mathematical writing we want to minimize:</p>
-<div>
-<div class="MathJax_Preview">\begin{Vmatrix} y - Ax \end{Vmatrix}</div>
-<script type="math/tex; mode=display">\begin{Vmatrix} y - Ax \end{Vmatrix}</script>
-</div>
-<h2 id="gradient-descent"><strong>Gradient Descent</strong></h2>
+<p>But, what exactly is an "optimal solution", and how do we get one? </p>
+<h2 id="optimization">Optimization</h2>
+<p>Optimization is a very important mathematical field in the world of machine learning. Optimization is essentially finding the best values for a problem to either maximize or minimize an "objective function". The objective function is a function that we want the output values to be "optimized". In our case, the objective function is the <strong>loss function</strong>, which essentially gives us a measurement of how well our algorithm is doing. Loss functions vary according to the type of </p>
+<h3 id="gradient-descent"><strong>Gradient Descent</strong></h3>
 <p>Let's say we want to find the minimize a function, for example <span><span class="MathJax_Preview">x^2</span><script type="math/tex">x^2</script></span>. We can easily find the minimum of this function (remember the second derivative rule in calculus?), but how can we do it for more complicated functions that are harder to differentiate like our objective function? This problem will get <strong><em>very hard</em></strong>, and <strong><em>very computationally intensive</em></strong>.</p>
 <p>To get over this hurdle of finding the exact minimum, we can instead <strong><em>approximate</em></strong> the minimum, using an algorithm called <strong>Gradient Descent</strong>. </p>
 <p>Imagine you have a ball and place it on a slope. It will move downwards, with the direction opposite of the gradient of the slope (remember the gradient is in the direction of <strong>ascent</strong>). We can think of gradient descent as something similar. Here we will move our current approximation of the minimum, towards the gradient. When the gradient gets small enough (in other words, when the slope is near zero at a minimum) or when we have moved our approximation for enough <strong>epochs</strong>, then we set the current approximation as our final value. </p>
+<p style="text-align: center;"> Illustration of Gradient Descent on 2D loss surface</p>
+
+<div style="text-align:center" ><img width="50%" height="50%" src='/images/gdloss.png' /></div>
+
+<p style="text-align: center;"> Moving down a 3D loss surface</p>
+
 <p><img alt="Illustration of Gradient Descent" src="../images/gd.gif" /></p>
 <p>However, calculating the gradient of the cost function is a costly procedure, as it has to be done with each weight of your model. If we wanted to do this mathematically, we would have to calculate the equation below to find the derivative for <em>each feature</em> and <em>each sample</em>, which would kill any computer.</p>
 <div>
@@ -943,8 +956,8 @@ Next, let's initialize our weights! Let's initialize these weights randomly so t
 <script type="math/tex; mode=display"> \nabla =(\frac{1}{n})(y - \hat{y})x </script>
 </div>
 <div>
-<div class="MathJax_Preview"> RMSE = \sqrt{(\frac{1}{n})\sum_{i=1}^{n}(y_{i} - \hat{y}_{i})^{2}} </div>
-<script type="math/tex; mode=display"> RMSE = \sqrt{(\frac{1}{n})\sum_{i=1}^{n}(y_{i} - \hat{y}_{i})^{2}} </script>
+<div class="MathJax_Preview"> RMSE = \sqrt{(\frac{1}{2n})\sum_{i=1}^{n}(y_{i} - \hat{y}_{i})^{2}} </div>
+<script type="math/tex; mode=display"> RMSE = \sqrt{(\frac{1}{2n})\sum_{i=1}^{n}(y_{i} - \hat{y}_{i})^{2}} </script>
 </div>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
@@ -1057,13 +1070,13 @@ Next, let's initialize our weights! Let's initialize these weights randomly so t
           </a>
         
         
-          <a href="../2. Classical ML and NLP/" title="2. Classical ML and NLP" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../Additional Resources/" title="Additional Resources" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                2. Classical ML and NLP
+                Additional Resources
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
