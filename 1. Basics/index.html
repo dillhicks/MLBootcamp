@@ -1007,11 +1007,11 @@ Next, let's initialize our weights! Let's initialize these weights randomly so t
 <p class="admonition-title">Danger</p>
 <p>Although this is a simple way of creating a classifier, this isn't be best way to create such a classifier. Here is an example given by Andrew Ng:</p>
 <p>For the problem listed below, of classifying malignant tumors from tumor size, we can see below that the classifier can perform very well since we can simply say that those with a value above 0.5 are malignant, and those below 0.5 are not.</p>
-<p><div style="text-align:center" ><img width="50%" height="50%" src='/images/fitting1.png' /></div></p>
+<p><img alt="fitting1" src="../images/fitting1.png" /></p>
 <p>However, what if we introduced an outlier sample that has an extremely large tumor size compared to previously malignant samples? Then we can definitely expect that this classifier would perform poorly. As the line that is fitted to our data would predict many of the tumors to be not malignant.</p>
-<p><div style="text-align:center" ><img width="70%" height="70%" src='/images/fitting2.png' /></div></p>
+<p><img alt="fitting2" src="../images/fitting2.png" /></p>
 <p>This is one issue with using a linear regression model as a classifier, as it is fairly prone to outliers compared to other classification methods. There are many other ways to do such a classification, as we will be making these algorithms in the next workshop, where we get more into classification! One way of doing this is by using a logistic function, or by creating a hyperplane, such that the definition between malignant and nonmalignant is very clear.</p>
-<p><div style="text-align:center" ><img width="70%" height="70%" src='/images/fitting3.png' /></div></p>
+<p><img alt="fitting3" src="../images/fitting3.png" /></p>
 <p>Source: <a href="https://stats.stackexchange.com/questions/22381/why-not-approach-classification-through-regression">Stackexchange</a></p>
 </div>
 <p>In the future, we will go over multi-class classification problems (when you are trying to distinguish between more than 2 classes), but for now we will focus on binary classification. </p>
