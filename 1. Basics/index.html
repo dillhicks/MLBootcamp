@@ -396,6 +396,30 @@
 
 
   <li class="md-nav__item">
+    <a href="../2. Classical ML and NLP/" title="2. Classical ML and NLP" class="md-nav__link">
+      2. Classical ML and NLP
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../3. Neural Networks and Computer Vision/" title="3. Neural Networks and Computer Vision" class="md-nav__link">
+      3. Neural Networks and Computer Vision
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
     <a href="../Additional Resources/" title="Additional Resources" class="md-nav__link">
       Additional Resources
     </a>
@@ -747,7 +771,11 @@
 </div>
 <p>But, what exactly is an "optimal solution", and how do we get one? </p>
 <h2 id="optimization">Optimization</h2>
-<p>Optimization is a very important mathematical field in the world of machine learning. Optimization is essentially finding the best values for a problem to either maximize or minimize an "objective function". The objective function is a function that we want the output values to be "optimized". In our case, the objective function is the <strong>loss function</strong>, which essentially gives us a measurement of how well our algorithm is doing. Loss functions vary according to the type of </p>
+<p>Optimization is a very important mathematical field in the world of machine learning. Optimization is essentially finding the best values for a problem to either maximize or minimize an "objective function". The objective function is a function that we want the output values to be "optimized". In our case, the objective function is the <strong>loss function</strong>, which essentially gives us a measurement of how well our algorithm is doing. Loss functions vary according to the type of problem, but for our case, we are minimizing our <strong>Root Mean Square Error (RMSE)</strong>, which essentially tells us our average error from our predictions of house value, from the true value. </p>
+<div>
+<div class="MathJax_Preview"> RMSE = \sqrt{(\frac{1}{2n})\sum_{i=1}^{n}(y_{i} - \hat{y}_{i})^{2}} </div>
+<script type="math/tex; mode=display"> RMSE = \sqrt{(\frac{1}{2n})\sum_{i=1}^{n}(y_{i} - \hat{y}_{i})^{2}} </script>
+</div>
 <h3 id="gradient-descent"><strong>Gradient Descent</strong></h3>
 <p>Let's say we want to find the minimize a function, for example <span><span class="MathJax_Preview">x^2</span><script type="math/tex">x^2</script></span>. We can easily find the minimum of this function (remember the second derivative rule in calculus?), but how can we do it for more complicated functions that are harder to differentiate like our objective function? This problem will get <strong><em>very hard</em></strong>, and <strong><em>very computationally intensive</em></strong>.</p>
 <p>To get over this hurdle of finding the exact minimum, we can instead <strong><em>approximate</em></strong> the minimum, using an algorithm called <strong>Gradient Descent</strong>. </p>
@@ -996,7 +1024,20 @@ Next, let's initialize our weights! Let's initialize these weights randomly so t
 <p>We can also measure our final RMSE and average absolute error as well. We can simply take the dot product between the weights and a the inputs to make our predictions, and </p>
 <h3 id="linear-regression-binary-classifier">Linear Regression Binary Classifier</h3>
 <p>Regression is continuous, so how can we turn this into something that is discrete. In other words, how can we go from our ML model predicting values, to predicting categories? </p>
+<p>In our case, how can we predict if a given sample is above a certain price?</p>
 <p>One simple way, is simply changing your prediction value from a continuous variable, to a discrete variable. In other words, we can simply change our y values from something that is continuous, to something that is categorical.</p>
+<p>We can apply a value of 1 for each "true" value, and a value of -1 for each "false" value. To get classifications after training our classifier, we can then simply get the sign of our output to receive a positive or negative classification</p>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>Although this is a simple way of creating a classifier, this isn't be best way to create such a classifier. Here is an example given by Andrew Ng:</p>
+<p>For the problem listed below, of classifying malignant tumors from tumor size, we can see below that the classifier can perform very well since we can simply say that those with a value above 0.5 are malignant, and those below 0.5 are not.</p>
+<p><div style="text-align:center" ><img width="50%" height="50%" src='/images/fitting1.png' /></div></p>
+<p>However, what if we introduced an outlier sample that has an extremely large tumor size compared to previously malignant samples? Then we can definitely expect that this classifier would perform poorly. As the line that is fitted to our data would predict many of the tumors to be not malignant.</p>
+<p><div style="text-align:center" ><img width="70%" height="70%" src='/images/fitting2.png' /></div></p>
+<p>This is one issue with using a linear regression model as a classifier, as it is fairly prone to outliers compared to other classification methods. There are many other ways to do such a classification, as we will be making these algorithms in the next workshop, where we get more into classification! One way of doing this is by using a logistic function, or by creating a hyperplane, such that the definition between malignant and nonmalignant is very clear.</p>
+<p><div style="text-align:center" ><img width="70%" height="70%" src='/images/fitting3.png' /></div></p>
+<p>Source: <a href="https://stats.stackexchange.com/questions/22381/why-not-approach-classification-through-regression">Stackexchange</a></p>
+</div>
 <p>In the future, we will go over multi-class classification problems (when you are trying to distinguish between more than 2 classes), but for now we will focus on binary classification. </p>
 <h2 id="conclusion"><strong>Conclusion</strong></h2>
 <p>So in conclusion, we learned a few things from this workshop</p>
@@ -1070,13 +1111,13 @@ Next, let's initialize our weights! Let's initialize these weights randomly so t
           </a>
         
         
-          <a href="../Additional Resources/" title="Additional Resources" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../2. Classical ML and NLP/" title="2. Classical ML and NLP" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Additional Resources
+                2. Classical ML and NLP
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
