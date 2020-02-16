@@ -1,0 +1,1121 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>3. Neural Networks and Computer Vision - IEEE Machine Learning Bootcamp</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.1b62728e.css">
+      
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#what-are-neural-networks" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href=".." title="IEEE Machine Learning Bootcamp" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              IEEE Machine Learning Bootcamp
+            </span>
+            <span class="md-header-nav__topic">
+              
+                3. Neural Networks and Computer Vision
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href=".." title="IEEE Machine Learning Bootcamp" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    IEEE Machine Learning Bootcamp
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../0. Setup/" title="Getting Started" class="md-nav__link">
+      Getting Started
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../1. Basics/" title="1. Basics" class="md-nav__link">
+      1. Basics
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../2. Classical ML and NLP/" title="2. Classical ML and NLP" class="md-nav__link">
+      2. Classical ML and NLP
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        3. Neural Networks and Computer Vision
+      </label>
+    
+    <a href="./" title="3. Neural Networks and Computer Vision" class="md-nav__link md-nav__link--active">
+      3. Neural Networks and Computer Vision
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-are-neural-networks" class="md-nav__link">
+    What are Neural Networks
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#computer-vision" class="md-nav__link">
+    Computer Vision
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#keras" class="md-nav__link">
+    Keras
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#google-colab" class="md-nav__link">
+    Google Colab
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-challenge" class="md-nav__link">
+    The Challenge:
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-dataset" class="md-nav__link">
+    The Dataset:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basics-perceptron" class="md-nav__link">
+    Basics: Perceptron
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#multi-layer-perceprton-mlp" class="md-nav__link">
+    Multi-Layer Perceprton (MLP)
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#backpropagation" class="md-nav__link">
+    Backpropagation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#convolutional-neural-networks" class="md-nav__link">
+    Convolutional Neural Networks
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#convolutional-layers" class="md-nav__link">
+    Convolutional Layers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pooling-layers" class="md-nav__link">
+    Pooling Layers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dense-layers" class="md-nav__link">
+    Dense Layers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#types-of-activation-functions" class="md-nav__link">
+    Types of Activation Functions
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rectified-linear-unit-relu" class="md-nav__link">
+    Rectified Linear Unit (ReLU)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sigmoid" class="md-nav__link">
+    Sigmoid
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alexnet" class="md-nav__link">
+    AlexNet
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-neural-networks-with-keras" class="md-nav__link">
+    Creating Neural Networks with Keras
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#clean-data" class="md-nav__link">
+    Clean Data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-features" class="md-nav__link">
+    Creating Features
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#train-model" class="md-nav__link">
+    Train Model
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transfer-learning" class="md-nav__link">
+    Transfer Learning
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#imagenet" class="md-nav__link">
+    ImageNet
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vgg16" class="md-nav__link">
+    VGG16
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Additional Resources/" title="Additional Resources" class="md-nav__link">
+      Additional Resources
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Extras/" title="Extras" class="md-nav__link">
+      Extras
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-are-neural-networks" class="md-nav__link">
+    What are Neural Networks
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#computer-vision" class="md-nav__link">
+    Computer Vision
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#keras" class="md-nav__link">
+    Keras
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#google-colab" class="md-nav__link">
+    Google Colab
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-challenge" class="md-nav__link">
+    The Challenge:
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-dataset" class="md-nav__link">
+    The Dataset:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basics-perceptron" class="md-nav__link">
+    Basics: Perceptron
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#multi-layer-perceprton-mlp" class="md-nav__link">
+    Multi-Layer Perceprton (MLP)
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#backpropagation" class="md-nav__link">
+    Backpropagation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#convolutional-neural-networks" class="md-nav__link">
+    Convolutional Neural Networks
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#convolutional-layers" class="md-nav__link">
+    Convolutional Layers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pooling-layers" class="md-nav__link">
+    Pooling Layers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dense-layers" class="md-nav__link">
+    Dense Layers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#types-of-activation-functions" class="md-nav__link">
+    Types of Activation Functions
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rectified-linear-unit-relu" class="md-nav__link">
+    Rectified Linear Unit (ReLU)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sigmoid" class="md-nav__link">
+    Sigmoid
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alexnet" class="md-nav__link">
+    AlexNet
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-neural-networks-with-keras" class="md-nav__link">
+    Creating Neural Networks with Keras
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#clean-data" class="md-nav__link">
+    Clean Data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-features" class="md-nav__link">
+    Creating Features
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#train-model" class="md-nav__link">
+    Train Model
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transfer-learning" class="md-nav__link">
+    Transfer Learning
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#imagenet" class="md-nav__link">
+    ImageNet
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vgg16" class="md-nav__link">
+    VGG16
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>3. Neural Networks and Computer Vision</h1>
+                
+                <h2 id="what-are-neural-networks">What are Neural Networks</h2>
+<p>In the past workshop, we talked about many of the weaknesses of neural networks, including their dependence on powerful computing and data. However, neural networks have one main advantage over classical machine learning methods: <strong>they can learn much more complex representations of your data than methods that we talked previously about can</strong>. In addition, when large amounts of feature rich data is available (such as with images), neural networks are not only the most logical method for tackling these problems, but the best.</p>
+<p>Neural Networks differ a lot compared to the past methods in that the inspiration is not mathematical, but biological. Neural networks operate in similar way to how neurons within our brain operate. Although neural networks are not exact copies of their biological counterparts (see Spiking Neural Networks below), we can approximate how they work to accomplish similar tasks. <strong>Here's a more in depth explanation of how Neural Networks work from a biological standpoint from Stanford University's CS231n</strong>:</p>
+<blockquote>
+<p>Each neuron receives input signals from its dendrites and produces output signals along its (single) axon. The axon eventually branches out and connects via synapses to dendrites of other neurons. In the computational model of a neuron, the signals that travel along the axons (e.g. <span><span class="MathJax_Preview">x_{0}</span><script type="math/tex">x_{0}</script></span>) interact multiplicatively (e.g. <span><span class="MathJax_Preview">w_{0}x_{0}</span><script type="math/tex">w_{0}x_{0}</script></span>) with the dendrites of the other neuron based on the synaptic strength at that synapse (e.g. <span><span class="MathJax_Preview">w_{0}</span><script type="math/tex">w_{0}</script></span>). The idea is that the synaptic strengths (the weights <span><span class="MathJax_Preview">w</span><script type="math/tex">w</script></span>) are learnable and control the strength of influence (and its direction: excitory (positive weight) or inhibitory (negative weight)) of one neuron on another.</p>
+</blockquote>
+<div style="text-align:center" ><img width="75%" height="75%" src="https://upload.wikimedia.org/wikipedia/commons/4/44/Neuron3.png" /></div>
+
+<p>Thus, modeled from how neurons function in human brains, we can make models that are a bit more "smart" than those covered in the classical ML section. </p>
+<p><strong>Just a preface on this workshop</strong>: The subject of neural networks is a <strong><em>very</em></strong> dense subject. Although the documentation for this section is the longest we have had yet, this barely scratches the surface of neural networks so don't feel dissuaded if this seems like an overwhelming amount of information. You can take entire courses on subjects that we spend 30 minutes on, so make sure that if certain subjects in this workshop interest you, make sure to do your own further research into neural networks. (Check out the <a href="../Additional Resources/">Additional Resources page</a>) </p>
+<h2 id="computer-vision">Computer Vision</h2>
+<p>One of the best uses of Neural Networks and Deep Learning in general is <strong>Computer Vision</strong>. Computer Vision is a field of artificial intelligence that aims to develop algorithms and methods to complete tasks using images and video from the real world, and get analysis or inferences on this visual data. Computer Vision intersects many fields, including Machine Learning and Robotics, and is the basis for many groundbreaking technologies such as facial detection and self driving cars. </p>
+<p>Computer Vision is a good use case for Neural Networks, as Neural Networks are typically better at completing these more complicated tasks.</p>
+<h2 id="keras">Keras</h2>
+<p>To code our Neural Networks within python, we will use a library called <strong>Keras</strong>. Keras is a library that makes it very easy to model and train deep neural networks within python. It simplifies the process of establishing neural network layers, and provides many convenience functions for things such as generating new data, training your model, and evaluating the performance of your models as well.</p>
+<p><img alt="Keras" src="../images/keras.png" /></p>
+<h2 id="google-colab">Google Colab</h2>
+<p>One question you might have is: "How can I train neural networks with my 5 year old laptop without a GPU, or even worse ... a Mac? I heard that you need a beefy computer with a GPU to do these sort of things." And while that is a valid worry, and yes, you definitely need a powerful computer, but we will get around this using <strong><em>the cloud</em></strong>. More specifically, we will be using Google Colaboratory (or Colab for short), which is essentially a <strong>Jupyter Notebook running on Google Cloud Backend, which allows you to use their powerful CPU's and GPU's</strong> (or even a TPU for you weirdos), to run your code and train your models, without melting the bottom of your laptop. </p>
+<div style="text-align:center" ><img width="30%" height="30%" src="https://colab.research.google.com/img/colab_favicon_256px.png" /></div>
+
+<h2 id="the-challenge">The Challenge:</h2>
+<p><img alt="Legos" src="../images/lego.jpg" />
+After the last terrible showing at your last job, you are now being forced to scour the world for any desperate attempt to make money. In your search through Craigslist ads, you find a man who will pay you to figure out ways to automate the sorting of his LEGO bricks (he's really lazy). So, in order to keep the lights on, you decide to dust off your machine learning toolkit to help him classify between different types of bricks. </p>
+<p><strong>How can we use machine learning to classify and do inferences on images?</strong></p>
+<h3 id="the-dataset">The Dataset:</h3>
+<p>To complete this task we obviously have to use past training data of imagery, so let's use a dataset related to the problem at hand: a dataset of LEGO bricks! The images in this dataset  are artificially generated, meaning  they are generated from 3D models rather than taking pictures of LEGOs with a camera, but they are images nonetheless and can prove to be useful in solving our problem.</p>
+<p><a href="https://www.kaggle.com/joosthazelzet/lego-brick-images">Link to Kaggle Dataset here</a></p>
+<p><a href="https://colab.research.google.com/drive/1u5SslJplcbo_zbliyKxgDRRpl9GbMS46">Link to Starter Code here</a></p>
+<h2 id="basics-perceptron">Basics: Perceptron</h2>
+<p>When you first get into creating neural networks, things can get pretty confusing. Words like perceptron, activation function, and backpropagation can get pretty confusing. However, don't worry too much as we have actually already created the simplest case of a neural network: a perceptron.</p>
+<p>A perceptron functions as follows:</p>
+<p><img alt="Perceptron" src="../images/perceptron.png" /></p>
+<ul>
+<li>
+<p>The perceptron takes input features <span><span class="MathJax_Preview">[x_{1} \cdots x_{n}]</span><script type="math/tex">[x_{1} \cdots x_{n}]</script></span> and multiplies each of the input features to each of it's corresponding weights <span><span class="MathJax_Preview">[w_{1} \cdots w_{n}]</span><script type="math/tex">[w_{1} \cdots w_{n}]</script></span> for each feature</p>
+</li>
+<li>
+<p>Then, it sums up all of these weights multiplied by their inputs such that the output of this, <span><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span> is $$y = w_{1}x_{1} + w_{2}x_{2} + w_{3}x_{3} + \cdots + w_{4}x_{4} $$</p>
+</li>
+</ul>
+<p><strong><em><div style="text-align:center" >(this is this starting to look familiar...)</div></em></strong></p>
+<ul>
+<li>We then apply an activation function, <span><span class="MathJax_Preview">h(x)</span><script type="math/tex">h(x)</script></span> (<em>also known as a transfer function for you EE majors</em>), to the weighted sum, to get our classification, <span><span class="MathJax_Preview">\hat{y}</span><script type="math/tex">\hat{y}</script></span>. To match the diagram above, let's use a step function as our activation, outputting 0 for outputs below zero and, and 1 for ouputs above zero, such that </li>
+</ul>
+<div>
+<div class="MathJax_Preview"> h(x) = sign(x) =  \begin{cases}  0 &amp; x &lt; 0 \\ 1 &amp; x\geq 0 \end{cases} </div>
+<script type="math/tex; mode=display"> h(x) = sign(x) =  \begin{cases}  0 & x < 0 \\ 1 & x\geq 0 \end{cases} </script>
+</div>
+<ul>
+<li>With the final output prediction:</li>
+</ul>
+<p>$$ \hat{y} = sign(w^{T}x) $$</p>
+<ul>
+<li>This results in a loss function:</li>
+</ul>
+<div>
+<div class="MathJax_Preview"> \frac{1}{N} \sum_{i=1}^{N} max(0, -y_{i}w^{T}x_{i}) </div>
+<script type="math/tex; mode=display"> \frac{1}{N} \sum_{i=1}^{N} max(0, -y_{i}w^{T}x_{i}) </script>
+</div>
+<p><strong>This is exactly how we defined a linear regression classifier in the first workshop</strong> The linear single layer perceptron, therefore is simply our linear regression model, with an activation function at the end. In this case, the activation function is used to add a nonlinearity to our classification. In this case, we created a discrete nonlinearity, to create output labels for our classifications. </p>
+<p>In general for neural networks, <strong>these activation functions create non-linearities, which can allow our algorithms to model nonlinear functions</strong>, or do nonlinear classifications. Such example of nonlinear problems are the problems in which neural networks often tackle: tasks of speech recognition, financial analysis, and computer vision, problems that linear machine learning algorithms struggle to complete.</p>
+<p><img alt="Nonlinearity" src="../images/nonlinear.png" /></p>
+<h3 id="multi-layer-perceprton-mlp">Multi-Layer Perceprton (MLP)</h3>
+<p>To continue on the last point, if we want to build on our perceptron, why not just once again, use the inspiration of a brain? Let's connect many neurons to each other, and see if it can classify.  </p>
+<p>This is where the <strong>Multi-Layer Perceptron (MLP)</strong> comes in. A multilayer perceptron functions similarly to a standard perceptron, except it has more intermediate layers between the input and output, called <strong>hidden layers</strong>. These layers are called hidden layers simply because they are between the input and outputs, and are therefore "hidden" if you view the MLP from the outside.</p>
+<p>Standard linear perceptrons such as the one shown before are great for doing linear tasks, such as linear regression and classification, but Multi-Layer Perceptrons excel at fitting Non-linear datasets.</p>
+<p>In general a MLP contains 3 sections:</p>
+<ol>
+<li>
+<p><strong>Input Layer</strong></p>
+<ul>
+<li>This simply takes in the inputs and feed them into the hidden layers of the network. </li>
+</ul>
+</li>
+<li>
+<p><strong>Hidden Layers</strong></p>
+<ul>
+<li>These are neurons where every neuron in a layer is connected to neurons in the layers in front of and behind that layer. MLP's can have as many hidden layers as you want to fit more complicated functions. However, note that with the more hidden layers your model has, the more prone your network is to overfitting (note below for more information about overfitting)</li>
+</ul>
+</li>
+<li>
+<p><strong>Output Layers</strong></p>
+<ul>
+<li>The output layer essentially does the opposite of what the input layer does, it takes all the outputs from the hidden layers, applies an activation function to get a final prediction value</li>
+</ul>
+</li>
+</ol>
+<h4 id="backpropagation">Backpropagation</h4>
+<p>In order to get an output value for your MLP it's fairly easy. Just as in the single perceptron, we feed our inputs into the perceptron, and these weights are added and then pushed forward into the activation function. This is what's called a <strong>forward pass</strong> of the neural network, where calculations from the weights and neurons are passed forward. </p>
+<p>While it is easy to get an output value from a trained MLP, how can we actually train this model is fairly complicated, but works magically when implemented. </p>
+<p><strong>Backpropagation works at the level of each individual neuron</strong>. For each neuron, with a given input, and a known output, we can calculate the gradient over that specific neuron with its individual input and output values. Since the specific mathematics of calculating these gradients can take an entire 2 hours in itself, we will save you the math (for now) and just show you that in order to start calculating these gradients, we need to do an entire forward pass through our neural network to calculate the gradient between the final neurons outputs and inputs. Using this gradient, we can recalculate weights, and move backwards throughout the neural network. </p>
+<p>See this figure below for an illustration on how backpropagation works.</p>
+<p><img alt="Backpropagation" src="../images/backprop.jpg" /></p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>Neural Networks are amazing universal approximators, in that they can approximate any function, linear or nonlinear. However, due to the nature of them being able to approximate any function, they can have a tendency to over-approximate a function as well. Let's say we take samples from an unknown wave, with the true wave being a simple sine wave. In the real world, when sampling a wave, there will be a bit of noise, oftentimes for waves <em>gaussian white noise</em> that comes along with your sample that makes normally distributed around the true values of your function.</p>
+<p>We can illustrate this in the figure below, with blue circles as our samples, and the green function as our true function, the sine wave. The model has obviously learned weights that make it fit the training data exactly. The function it generated passes through all the points, therefore we can expect the training error to be very low. On the other hand, this function is very far from the true sine wave, meaning we either need more data to avoid over fitting, or train our model enough where it can perform well on the training data, but <strong>generalize</strong> well to unseen data.</p>
+<p><div style="text-align:center" ><img width="60%" height="60%" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSonKXcToxmezFPMWfppWV51s3NT7dugdvDXcj2gox9qee-Nay6" /></div></p>
+</div>
+<h2 id="convolutional-neural-networks">Convolutional Neural Networks</h2>
+<p>So you might ask, using things that we have previously talked about, how can we make an image classifier? For a simple example, we can just have each pixel be an input feature for the MLP. There is one weakness to this however: this method is insensitive to the position of objects in the image. Since each input pixel has an associated, single weight, this model doesn't account for movements of objects within the image. In addition, MLP's also only use pixels as their features, as apposed to shapes and other visual elements in an image. </p>
+<p>Convolutional Neural Networks aim to solve that issue. By sliding a window, or filter, across an image, the CNN then convolves the weights and outputs them to a feature map. It can use these convolutions to in fact learn how to extract notable features from images out of images (more on what we mean later).</p>
+<p><img alt="Convolutional Filter" src="../images/convfilter.gif" /></p>
+<p>The Basic structure of a Convolutional Neural network is as follows: </p>
+<ol>
+<li>
+<p>Feature Extraction </p>
+<ul>
+<li><strong>Convolutional Layers</strong> to extract features from images </li>
+<li><strong>Pooling Layers</strong> to take previous convolutional layers to a lower dimension</li>
+</ul>
+</li>
+<li>
+<p>Classification</p>
+<ul>
+<li><strong>Dense Layers</strong> to classify using learned features</li>
+</ul>
+</li>
+</ol>
+<h4 id="convolutional-layers">Convolutional Layers</h4>
+<p>Convolutional Layers, the Namesake of CNNS act as the feature recognition sections of CNN's. They act as a sliding window, taking a sliding window, and convolving with the pixels that the current filter is under by learned weights. This can be use to extract features out of images, as the filters it learns can effectively learn the spatial orientation of pixels without being dependent on position in image, because of the sliding window.</p>
+<p><img alt="Convolution" src="../images/conv.gif" /></p>
+<h4 id="pooling-layers">Pooling Layers</h4>
+<p>Pooling Layers are used to downsample convolutional layers down to a lower dimension. This allows the network to learn "higher level" features by allowing forward convolutional layers to learn from this downsample data.
+<img alt="Convolution" src="../images/maxpool.gif" /></p>
+<h4 id="dense-layers">Dense Layers</h4>
+<p><strong>Dense layers</strong> essentially act in a similar fashion to the hidden layers of a MLP. Much like how MLP's take input features from data and then classifies them, the Dense, or <strong><em>Fully Connected Layers</em></strong> takes features generated from the Convolutional layers and then classifies them using weights learned through backpropagation.</p>
+<h3 id="types-of-activation-functions">Types of Activation Functions</h3>
+<p>Although we talked previously about activation functions that add nonlinearities to your neural network, our CNN needs something similar to add nonlinearities in order to learn when to "activate" a neuron.</p>
+<h4 id="rectified-linear-unit-relu">Rectified Linear Unit (ReLU)</h4>
+<p>The bread and butter actvation function for CNN's and most neural networks is the **Rectified Linear Unit (ReLU)</p>
+<div>
+<div class="MathJax_Preview"> h(x) =  max(0,x) </div>
+<script type="math/tex; mode=display"> h(x) =  max(0,x) </script>
+</div>
+<p>The ReLU activation function is one of the most commonly used activation functions in Deep Learning mainly because of it's simplicity. It is very cheap to compute the output of a ReLU activation, as it is simply just a boolean map, with it's derivative also being very easy to calculate (<span><span class="MathJax_Preview">max(0,1)</span><script type="math/tex">max(0,1)</script></span>)</p>
+<p><strong>TL;DR for ReLU:</strong> ReLU is an nonlinearity commonly used in Convolutional Neural Networks, that is simple and non computationally heavy.</p>
+<h4 id="sigmoid">Sigmoid</h4>
+<p>We will save you the math for the derivation of this, but <strong>Sigmoid activation functions are used to output the class probabilities</strong>, oftentimes in the final layer of the network, as you will see at the end of the CNN you construct.</p>
+<div>
+<div class="MathJax_Preview"> h(x) =  \frac{\mathrm{1} }{\mathrm{1} + e^{-x } } </div>
+<script type="math/tex; mode=display"> h(x) =  \frac{\mathrm{1} }{\mathrm{1} + e^{-x } } </script>
+</div>
+<h3 id="alexnet">AlexNet</h3>
+<p>AlexNet is one of the most groundbreaking CNN architectures, simply because it was one of the first to use multiple Convolotional Layers in series. This network changed the face of ILSVRC (we will talk more about this competition later), ushering a new era of Deep Learning supremacy in the field of image classification algorithms.</p>
+<p><img alt="AlexNet Layers" src="../images/alexlayers.png" /></p>
+<h3 id="creating-neural-networks-with-keras">Creating Neural Networks with Keras</h3>
+<p>Let's start coding! First, let's make an implementation of AlexNet in Keras to complete our task to classify LEGOS</p>
+<p>If we take a step back to the past workshops, we followed a similar workflow for all image classification tasks. </p>
+<ol>
+<li><strong>Clean Data</strong></li>
+<li><strong>Create Features</strong></li>
+<li><strong>Train Model</strong></li>
+<li><strong>Test Model</strong></li>
+</ol>
+<p>In this workshop, we will follow a similar workflow as well to make our image classifier, which is based on the AlexNet architecture we talked about previously.</p>
+<h4 id="clean-data">Clean Data</h4>
+<p>For this section, we can't really do much data cleaning. We can do <em>some</em> modifications to our images, but in general we don't want to change the images much. However, we can generate more images to simulate a larger dataset, which can be easily done with Keras.</p>
+<p>Let's make a new function that takes in certain parameters, and creates a generator for our training and validation data. </p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">generate_data</span><span class="p">(</span><span class="n">train_data_dir</span><span class="p">,</span><span class="n">image_width</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">aug</span><span class="p">):</span>
+
+    <span class="c1">#create generators here</span>
+
+    <span class="k">return</span> <span class="n">train_generator</span><span class="p">,</span> <span class="n">validation_generator</span>
+</pre></div>
+</td></tr></table>
+
+<p>Now let's actually make these generators. The first generator we will make is the <code class="codehilite"><span class="err">ImageDataGenerator</span></code>, which will set up the transformations we will add to the data.</p>
+<p>The image transformations we want to add is a horizontal shear, flipping the image vertically and horizontally, in addition to zooming in the image. For each image transformation we do, we can actually multiply our dataset, as a new training sample is made for each augmentation. See the figure below for example augmentations</p>
+<p><img alt="Augmentation" src="../images/aug.png" /></p>
+<p>Now we can make the training and test generators for our data.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">train_generator</span> <span class="o">=</span> <span class="n">train_datagen</span><span class="o">.</span><span class="n">flow_from_directory</span><span class="p">(</span>
+        <span class="n">train_data_dir</span><span class="p">,</span>
+        <span class="c1"># Other arguments (fill these in)</span>
+        <span class="c1">#</span>
+        <span class="c1">#</span>
+        <span class="n">subset</span><span class="o">=</span><span class="s1">&#39;training&#39;</span><span class="p">,</span>
+        <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> 
+
+    <span class="c1">#Generate Validation data from images</span>
+    <span class="n">validation_generator</span> <span class="o">=</span> <span class="n">train_datagen</span><span class="o">.</span><span class="n">flow_from_directory</span><span class="p">(</span>
+        <span class="n">train_data_dir</span><span class="p">,</span> <span class="c1"># same directory as training data</span>
+        <span class="c1">#</span>
+        <span class="c1">#</span>
+        <span class="c1">#</span>
+        <span class="n">subset</span><span class="o">=</span><span class="s1">&#39;validation&#39;</span><span class="p">,</span>
+        <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</td></tr></table>
+
+<h4 id="creating-features">Creating Features</h4>
+<p>As we talked about before, Convolutional Neural Networks implicitly creates features from input images. With this stage, the CNN is doing all of the heavy lifting, but let's actually do this right now </p>
+<p>Let's set up the layer structure using the below chart for their respective filter sizes, stride, etc. We can create a function to make our model with the function returning the sequential model object that Keras created.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">keras</span>
+<span class="kn">from</span> <span class="nn">keras.layers</span> <span class="kn">import</span> <span class="n">Dense</span><span class="p">,</span> <span class="n">Activation</span><span class="p">,</span> <span class="n">Dropout</span><span class="p">,</span> <span class="n">Flatten</span><span class="p">,</span> <span class="n">Conv2D</span><span class="p">,</span> <span class="n">MaxPooling2D</span>
+<span class="k">def</span> <span class="nf">create_alexnet</span><span class="p">():</span>
+
+    <span class="n">model</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">Sequential</span><span class="p">()</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">your</span> <span class="n">layer</span><span class="p">)</span>
+    <span class="c1">#add layers according to the chart above</span>
+
+
+    <span class="k">return</span> <span class="n">model</span>
+</pre></div>
+</td></tr></table>
+
+<p><img alt="Alexnet" src="../images/alexnet.JPG" /></p>
+<p>To aid you in this, below we have some examples on adding new layers to your neural net:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">#Example for input layer with 96 filters, a filter size of 11x11, with a stride of 4 and relu activation</span>
+<span class="c1">#we denote input shape since this is the input layer</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Conv2D</span><span class="p">(</span><span class="n">filters</span><span class="o">=</span><span class="mi">96</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">224</span><span class="p">,</span><span class="mi">224</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">kernel_size</span><span class="o">=</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span><span class="mi">11</span><span class="p">),</span> <span class="n">strides</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span> <span class="n">padding</span><span class="o">=</span><span class="s1">&#39;valid&#39;</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
+
+<span class="c1">#Example for MaxPooling2D Layer for a 2x2 size and a size 2 stride</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">MaxPooling2D</span><span class="p">(</span><span class="n">pool_size</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">strides</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">padding</span><span class="o">=</span><span class="s1">&#39;valid&#39;</span><span class="p">))</span>
+
+<span class="c1">#Flatten your the output matrix from your Conv2D Layers</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Flatten</span><span class="p">())</span>
+
+
+<span class="c1">#Dense Layer with 9216 nodes and relu activation</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">9216</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
+</pre></div>
+</td></tr></table>
+
+<p>After that we can create our model and generate our data</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">train_generator</span><span class="p">,</span> <span class="n">validation_generator</span> <span class="o">=</span> <span class="n">generate_data</span><span class="p">(</span><span class="n">train_data_dir</span><span class="p">,</span><span class="n">image_width</span><span class="p">,</span><span class="mi">64</span><span class="p">,</span><span class="n">aug</span><span class="p">)</span>
+
+<span class="c1">#Use create_alexnet() function to create network layer for AlexNet</span>
+<span class="n">alexnet</span> <span class="o">=</span> <span class="n">create_alexnet</span><span class="p">()</span>
+</pre></div>
+</td></tr></table>
+
+<h4 id="train-model">Train Model</h4>
+<p>Now let's finally train our model</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">keras.optimizers</span> <span class="kn">import</span> <span class="n">SGD</span>
+<span class="c1">#Use stochastic gradient descent for optimizer</span>
+<span class="n">opt</span> <span class="o">=</span> <span class="n">SGD</span><span class="p">(</span><span class="n">lr</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">decay</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">momentum</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">nesterov</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+
+<span class="c1">#Compile model with a categorical cross entropy loss and adam optimizer</span>
+<span class="n">alexnet</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="n">keras</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">categorical_crossentropy</span><span class="p">,</span> <span class="n">optimizer</span><span class="o">=</span><span class="n">opt</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">])</span>
+
+<span class="c1">#Fit model and generate Data</span>
+<span class="n">history</span> <span class="o">=</span> <span class="n">alexnet</span><span class="o">.</span><span class="n">fit_generator</span><span class="p">(</span><span class="n">generator</span><span class="o">=</span><span class="n">train_generator</span><span class="p">,</span>
+                    <span class="n">steps_per_epoch</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span>
+                    <span class="n">validation_data</span><span class="o">=</span><span class="n">validation_generator</span><span class="p">,</span>
+                    <span class="n">validation_steps</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span>
+                    <span class="n">epochs</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</td></tr></table>
+
+<h2 id="transfer-learning">Transfer Learning</h2>
+<p>Let's get back to the challenge at hand. After your final accuracy of around 70 percent from the CNN you just made, that obviously isn't good enough to classify these LEGO bricks reliably. Your client is definitely going to encounter a bunch of </p>
+<p><strong>Transfer Learning is the process of taking weights learned from a previous task, and using those previous weights to learn a new task.</strong> </p>
+<p>Think of the example from when we made a linear regression classifier with gradient descent. The weights that make up the slope of the line for linear regression for California housing prices are already at the local minimum learned from gradient descent. What if we wanted to train a linear regression model on Texas housing prices? Althogh the line fit doesn't have <em>exactly</em> the same slope and y-intercept, we can expect this California housing price line to be a lot closer than a random line to the line of best fit for </p>
+<p>This isn't too useful when dealing with simple models. As we saw before, it only takes a second to train our linear regression as  we only had 8 weights that needed to be trained. However, what if we want to train models with millions of weights that need to be trained? By using previously trained weights that have been learned on relevant problems, we can expect our time and computing saved on training to be a lot higher, since the total amount of parameters that need to be trained have been reduced heavily. </p>
+<p>In short, <strong>Transfer Learning is used to save training time and computation, and in the case of CNN's, can be used to extract features when you don't have enough data to train the convolutional layers of your network.</strong></p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p><strong>One main negative point with transfer learning is that it is essentially a black box.</strong> Since we have no control over how the layers are being setup, and all aspects of the original neural network have to be followed such as relative sizes and things such as the optimizer and batch rates used. Be careful using transfer learning models, as many of these parameters are essntial to your CNN training <strong>at all</strong>.</p>
+</div>
+<h3 id="imagenet">ImageNet</h3>
+<p>ImageNet is not a Network Like much of the previous neural networks discussed, but in fact is a database with over 1 million images and 1000 classes aimed to be used in the ImageNet Large Scale Visual Recognition Challenge, where researchers attempt to make the highest accuracy image classifier. This dataset is used to benchmark many image classifiers, and is used greatly in transfer learning to train the Convolutional Layers in transfer learning problems.</p>
+<h3 id="vgg16">VGG16</h3>
+<p>VGG16 is an incremental improvement on AlexNet, being released shortly after. (It's essentially a deeper AlexNet with some other changes). VGG16 however is very heavy, and takes <em>forever</em> to train so why not use transfer learning to apply this better network to our problem. </p>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../2. Classical ML and NLP/" title="2. Classical ML and NLP" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                2. Classical ML and NLP
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../Additional Resources/" title="Additional Resources" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Additional Resources
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.808e90bb.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>
